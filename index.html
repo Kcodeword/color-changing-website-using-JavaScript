@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Scheme Switcher</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        transition: background-color 0.5s ease;
+        text-align: center;
+        background-color: #f4f4f4;
+      }
+
+      nav {
+        background-color: #333;
+        padding: 1rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.1rem;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: #ffcc00;
+      }
+
+      .canvas {
+        margin: 100px auto;
+        width: 90%;
+        max-width: 800px;
+        background-color: white;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        margin-bottom: 30px;
+        color: #333;
+        font-size: 2.5rem;
+      }
+
+      .button {
+        width: 80px;
+        height: 80px;
+        border: 3px solid #444;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;
+        transition: transform 0.3s, border-color 0.3s;
+      }
+
+      .button:hover {
+        transform: scale(1.1);
+        border-color: #111;
+      }
+
+      #grey {
+        background-color: grey;
+      }
+
+      #white {
+        background-color: white;
+      }
+
+      #blue {
+        background-color: #3498db;
+      }
+
+      #yellow {
+        background-color: #f1c40f;
+      }
+
+      h2 {
+        margin-top: 40px;
+        color: #555;
+        font-size: 1.4rem;
+      }
+
+      h2 span {
+        display: block;
+        font-size: 1rem;
+        color: #777;
+      }
+
+      /* Responsive Design */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .button {
+    width: 60px;
+    height: 60px;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <!-- <nav>
+      <a href="/">Home</a>
+      <a target="_blank" href="https://www.youtube.com/@chaiaurcode">YouTube Channel</a>
+    </nav> -->
+
+    <div class="canvas">
+      <h1>Color Scheme Switcher</h1>
+      <span class="button" id="grey" title="Grey"></span>
+      <span class="button" id="white" title="White"></span>
+      <span class="button" id="blue" title="Blue"></span>
+      <span class="button" id="yellow" title="Yellow"></span>
+
+      <h2>
+        Try clicking on one of the colors above
+        <span>to change the background color of this page!</span>
+      </h2>
+    </div>
+
+    <script>
+      const buttons = document.querySelectorAll('.button');
+      const body = document.querySelector('body');
+
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function (e) {
+          const color = e.target.id;
+          body.style.backgroundColor = color;
+        });
+      });
+    </script>
+  </body>
+</html>
